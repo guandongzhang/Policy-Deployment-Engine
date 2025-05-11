@@ -176,3 +176,15 @@ The policy ensures that the IAM role for Secure Source Manager (SSM) instances i
 `"role": "roles/secureSourceManager.instanceAccessor"`
 
 ![Alt text](images/image-4.png)
+
+### D. google_secure_source_manager_instance_iam_policy
+
+##### 1. policy_data
+
+This is a resource in Terraform that allows you to set and manage IAM (Identity and Access Management) policies for a Secure Source Manager instance in Google Cloud. It defines which users, groups, or service accounts have specific roles and permissions for accessing and managing a Secure Source Manager instance.
+
+The policy uses a "whitelist" approach, meaning only the specified role is allowed, and any deviation from this will trigger a violation. The purpose is to restrict access to the instance to view-only permissions, limiting it to the instanceAccessor role.
+
+`"policy_data": "{\"bindings\":[{\"role\":\"roles/securesourcemanager.instanceAccessor\"}]}",`
+
+![Alt text](images/image14.png)
