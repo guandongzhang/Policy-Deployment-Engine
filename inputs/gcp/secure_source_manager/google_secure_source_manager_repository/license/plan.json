@@ -1,0 +1,244 @@
+{
+    "format_version": "1.2",
+    "terraform_version": "1.11.3",
+    "planned_values": {
+        "root_module": {
+            "resources": [
+                {
+                    "address": "google_secure_source_manager_repository.c",
+                    "mode": "managed",
+                    "type": "google_secure_source_manager_repository",
+                    "name": "c",
+                    "provider_name": "registry.terraform.io/hashicorp/google",
+                    "schema_version": 0,
+                    "values": {
+                        "description": null,
+                        "initial_config": [
+                            {
+                                "default_branch": null,
+                                "gitignores": null,
+                                "license": "mit",
+                                "readme": "README.md"
+                            }
+                        ],
+                        "instance": "test-repo-license-type-c",
+                        "location": "australia-southeast2-a",
+                        "project": "policy-depolyment",
+                        "repository_id": "repo-c",
+                        "timeouts": null
+                    },
+                    "sensitive_values": {
+                        "initial_config": [
+                            {}
+                        ],
+                        "uris": []
+                    }
+                },
+                {
+                    "address": "google_secure_source_manager_repository.nc",
+                    "mode": "managed",
+                    "type": "google_secure_source_manager_repository",
+                    "name": "nc",
+                    "provider_name": "registry.terraform.io/hashicorp/google",
+                    "schema_version": 0,
+                    "values": {
+                        "description": null,
+                        "initial_config": [
+                            {
+                                "default_branch": null,
+                                "gitignores": null,
+                                "license": null,
+                                "readme": "README.md"
+                            }
+                        ],
+                        "instance": "test-repo-license-type-nc",
+                        "location": "australia-southeast2-a",
+                        "project": "policy-depolyment",
+                        "repository_id": "repo-nc",
+                        "timeouts": null
+                    },
+                    "sensitive_values": {
+                        "initial_config": [
+                            {}
+                        ],
+                        "uris": []
+                    }
+                }
+            ]
+        }
+    },
+    "resource_changes": [
+        {
+            "address": "google_secure_source_manager_repository.c",
+            "mode": "managed",
+            "type": "google_secure_source_manager_repository",
+            "name": "c",
+            "provider_name": "registry.terraform.io/hashicorp/google",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "description": null,
+                    "initial_config": [
+                        {
+                            "default_branch": null,
+                            "gitignores": null,
+                            "license": "mit",
+                            "readme": "README.md"
+                        }
+                    ],
+                    "instance": "test-repo-license-type-c",
+                    "location": "australia-southeast2-a",
+                    "project": "policy-depolyment",
+                    "repository_id": "repo-c",
+                    "timeouts": null
+                },
+                "after_unknown": {
+                    "create_time": true,
+                    "id": true,
+                    "initial_config": [
+                        {}
+                    ],
+                    "name": true,
+                    "uid": true,
+                    "update_time": true,
+                    "uris": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "initial_config": [
+                        {}
+                    ],
+                    "uris": []
+                }
+            }
+        },
+        {
+            "address": "google_secure_source_manager_repository.nc",
+            "mode": "managed",
+            "type": "google_secure_source_manager_repository",
+            "name": "nc",
+            "provider_name": "registry.terraform.io/hashicorp/google",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "description": null,
+                    "initial_config": [
+                        {
+                            "default_branch": null,
+                            "gitignores": null,
+                            "license": null,
+                            "readme": "README.md"
+                        }
+                    ],
+                    "instance": "test-repo-license-type-nc",
+                    "location": "australia-southeast2-a",
+                    "project": "policy-depolyment",
+                    "repository_id": "repo-nc",
+                    "timeouts": null
+                },
+                "after_unknown": {
+                    "create_time": true,
+                    "id": true,
+                    "initial_config": [
+                        {}
+                    ],
+                    "name": true,
+                    "uid": true,
+                    "update_time": true,
+                    "uris": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {
+                    "initial_config": [
+                        {}
+                    ],
+                    "uris": []
+                }
+            }
+        }
+    ],
+    "configuration": {
+        "provider_config": {
+            "google": {
+                "name": "google",
+                "full_name": "registry.terraform.io/hashicorp/google",
+                "version_constraint": "6.8.0"
+            }
+        },
+        "root_module": {
+            "resources": [
+                {
+                    "address": "google_secure_source_manager_repository.c",
+                    "mode": "managed",
+                    "type": "google_secure_source_manager_repository",
+                    "name": "c",
+                    "provider_config_key": "google",
+                    "expressions": {
+                        "initial_config": [
+                            {
+                                "license": {
+                                    "constant_value": "mit"
+                                },
+                                "readme": {
+                                    "constant_value": "README.md"
+                                }
+                            }
+                        ],
+                        "instance": {
+                            "constant_value": "test-repo-license-type-c"
+                        },
+                        "location": {
+                            "constant_value": "australia-southeast2-a"
+                        },
+                        "project": {
+                            "constant_value": "policy-depolyment"
+                        },
+                        "repository_id": {
+                            "constant_value": "repo-c"
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "google_secure_source_manager_repository.nc",
+                    "mode": "managed",
+                    "type": "google_secure_source_manager_repository",
+                    "name": "nc",
+                    "provider_config_key": "google",
+                    "expressions": {
+                        "initial_config": [
+                            {
+                                "readme": {
+                                    "constant_value": "README.md"
+                                }
+                            }
+                        ],
+                        "instance": {
+                            "constant_value": "test-repo-license-type-nc"
+                        },
+                        "location": {
+                            "constant_value": "australia-southeast2-a"
+                        },
+                        "project": {
+                            "constant_value": "policy-depolyment"
+                        },
+                        "repository_id": {
+                            "constant_value": "repo-nc"
+                        }
+                    },
+                    "schema_version": 0
+                }
+            ]
+        }
+    },
+    "timestamp": "2025-05-09T07:42:50Z",
+    "applyable": true,
+    "complete": true,
+    "errored": false
+}

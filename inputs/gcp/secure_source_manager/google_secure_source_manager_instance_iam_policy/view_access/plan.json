@@ -1,0 +1,279 @@
+{
+    "format_version": "1.2",
+    "terraform_version": "1.11.3",
+    "planned_values": {
+        "root_module": {
+            "resources": [
+                {
+                    "address": "google_secure_source_manager_instance_iam_policy.c",
+                    "mode": "managed",
+                    "type": "google_secure_source_manager_instance_iam_policy",
+                    "name": "c",
+                    "provider_name": "registry.terraform.io/hashicorp/google",
+                    "schema_version": 0,
+                    "values": {
+                        "instance_id": "testgcp-iam-policy-access-c",
+                        "location": "australia-southeast2-a",
+                        "policy_data": "{\"bindings\":[{\"role\":\"roles/secure_source_manager.instanceAccessor\"}]}",
+                        "project": "policy-deployment"
+                    },
+                    "sensitive_values": {}
+                },
+                {
+                    "address": "google_secure_source_manager_instance_iam_policy.nc",
+                    "mode": "managed",
+                    "type": "google_secure_source_manager_instance_iam_policy",
+                    "name": "nc",
+                    "provider_name": "registry.terraform.io/hashicorp/google",
+                    "schema_version": 0,
+                    "values": {
+                        "instance_id": "testgcp-iam-policy-access-nc",
+                        "location": "australia-southeast2-a",
+                        "policy_data": "{\"bindings\":[{\"role\":\"roles/secure_source_manager.instanceOwner\"}]}",
+                        "project": "policy-deployment"
+                    },
+                    "sensitive_values": {}
+                }
+            ]
+        }
+    },
+    "resource_changes": [
+        {
+            "address": "google_secure_source_manager_instance_iam_policy.c",
+            "mode": "managed",
+            "type": "google_secure_source_manager_instance_iam_policy",
+            "name": "c",
+            "provider_name": "registry.terraform.io/hashicorp/google",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "instance_id": "testgcp-iam-policy-access-c",
+                    "location": "australia-southeast2-a",
+                    "policy_data": "{\"bindings\":[{\"role\":\"roles/secure_source_manager.instanceAccessor\"}]}",
+                    "project": "policy-deployment"
+                },
+                "after_unknown": {
+                    "etag": true,
+                    "id": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {}
+            }
+        },
+        {
+            "address": "google_secure_source_manager_instance_iam_policy.nc",
+            "mode": "managed",
+            "type": "google_secure_source_manager_instance_iam_policy",
+            "name": "nc",
+            "provider_name": "registry.terraform.io/hashicorp/google",
+            "change": {
+                "actions": [
+                    "create"
+                ],
+                "before": null,
+                "after": {
+                    "instance_id": "testgcp-iam-policy-access-nc",
+                    "location": "australia-southeast2-a",
+                    "policy_data": "{\"bindings\":[{\"role\":\"roles/secure_source_manager.instanceOwner\"}]}",
+                    "project": "policy-deployment"
+                },
+                "after_unknown": {
+                    "etag": true,
+                    "id": true
+                },
+                "before_sensitive": false,
+                "after_sensitive": {}
+            }
+        }
+    ],
+    "prior_state": {
+        "format_version": "1.0",
+        "terraform_version": "1.11.3",
+        "values": {
+            "root_module": {
+                "resources": [
+                    {
+                        "address": "data.google_iam_policy.access",
+                        "mode": "data",
+                        "type": "google_iam_policy",
+                        "name": "access",
+                        "provider_name": "registry.terraform.io/hashicorp/google",
+                        "schema_version": 0,
+                        "values": {
+                            "audit_config": null,
+                            "binding": [
+                                {
+                                    "condition": [],
+                                    "members": [],
+                                    "role": "roles/secure_source_manager.instanceAccessor"
+                                }
+                            ],
+                            "id": "3660380051",
+                            "policy_data": "{\"bindings\":[{\"role\":\"roles/secure_source_manager.instanceAccessor\"}]}"
+                        },
+                        "sensitive_values": {
+                            "binding": [
+                                {
+                                    "condition": [],
+                                    "members": []
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "address": "data.google_iam_policy.admin",
+                        "mode": "data",
+                        "type": "google_iam_policy",
+                        "name": "admin",
+                        "provider_name": "registry.terraform.io/hashicorp/google",
+                        "schema_version": 0,
+                        "values": {
+                            "audit_config": null,
+                            "binding": [
+                                {
+                                    "condition": [],
+                                    "members": [],
+                                    "role": "roles/secure_source_manager.instanceOwner"
+                                }
+                            ],
+                            "id": "1073139409",
+                            "policy_data": "{\"bindings\":[{\"role\":\"roles/secure_source_manager.instanceOwner\"}]}"
+                        },
+                        "sensitive_values": {
+                            "binding": [
+                                {
+                                    "condition": [],
+                                    "members": []
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "configuration": {
+        "provider_config": {
+            "google": {
+                "name": "google",
+                "full_name": "registry.terraform.io/hashicorp/google",
+                "version_constraint": "6.8.0"
+            }
+        },
+        "root_module": {
+            "resources": [
+                {
+                    "address": "google_secure_source_manager_instance_iam_policy.c",
+                    "mode": "managed",
+                    "type": "google_secure_source_manager_instance_iam_policy",
+                    "name": "c",
+                    "provider_config_key": "google",
+                    "expressions": {
+                        "instance_id": {
+                            "constant_value": "testgcp-iam-policy-access-c"
+                        },
+                        "location": {
+                            "constant_value": "australia-southeast2-a"
+                        },
+                        "policy_data": {
+                            "references": [
+                                "data.google_iam_policy.access.policy_data",
+                                "data.google_iam_policy.access"
+                            ]
+                        },
+                        "project": {
+                            "constant_value": "policy-deployment"
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "google_secure_source_manager_instance_iam_policy.nc",
+                    "mode": "managed",
+                    "type": "google_secure_source_manager_instance_iam_policy",
+                    "name": "nc",
+                    "provider_config_key": "google",
+                    "expressions": {
+                        "instance_id": {
+                            "constant_value": "testgcp-iam-policy-access-nc"
+                        },
+                        "location": {
+                            "constant_value": "australia-southeast2-a"
+                        },
+                        "policy_data": {
+                            "references": [
+                                "data.google_iam_policy.admin.policy_data",
+                                "data.google_iam_policy.admin"
+                            ]
+                        },
+                        "project": {
+                            "constant_value": "policy-deployment"
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "data.google_iam_policy.access",
+                    "mode": "data",
+                    "type": "google_iam_policy",
+                    "name": "access",
+                    "provider_config_key": "google",
+                    "expressions": {
+                        "binding": [
+                            {
+                                "members": {
+                                    "constant_value": []
+                                },
+                                "role": {
+                                    "constant_value": "roles/secure_source_manager.instanceAccessor"
+                                }
+                            }
+                        ]
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "data.google_iam_policy.admin",
+                    "mode": "data",
+                    "type": "google_iam_policy",
+                    "name": "admin",
+                    "provider_config_key": "google",
+                    "expressions": {
+                        "binding": [
+                            {
+                                "members": {
+                                    "constant_value": []
+                                },
+                                "role": {
+                                    "constant_value": "roles/secure_source_manager.instanceOwner"
+                                }
+                            }
+                        ]
+                    },
+                    "schema_version": 0
+                }
+            ]
+        }
+    },
+    "relevant_attributes": [
+        {
+            "resource": "data.google_iam_policy.access",
+            "attribute": [
+                "policy_data"
+            ]
+        },
+        {
+            "resource": "data.google_iam_policy.admin",
+            "attribute": [
+                "policy_data"
+            ]
+        }
+    ],
+    "timestamp": "2025-05-09T14:36:58Z",
+    "applyable": true,
+    "complete": true,
+    "errored": false
+}
