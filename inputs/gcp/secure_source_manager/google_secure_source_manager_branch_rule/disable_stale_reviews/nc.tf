@@ -1,8 +1,7 @@
 resource "google_secure_source_manager_branch_rule" "nc" {
-    location = "us-central1"
-     branch_rule_id = "nc1"
+    location = "australia-southeast2-a"
+     branch_rule_id = "stale-enabled-nc"
     repository_id = "my-repository-nc"
     include_pattern = "*"
     project  = "policy-depolyment"
-    minimum_reviews_count = 1
 }
