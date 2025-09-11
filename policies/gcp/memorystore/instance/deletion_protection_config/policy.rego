@@ -1,25 +1,26 @@
-package terraform.gcp.memorystore.instance.deletion_protection_config
+```rego
+package terraform.gcp.security.memorystore_redis.instance.deletion_protection_config
 
 import data.terraform.gcp.helpers
+import data.terraform.gcp.security.memorystore.redis.vars
 
-default allow = false
+conditions := [
+    [
+        {
+            "situation_description": "Redis instances must have deletion protection enabled to prevent accidental data loss.",
+            "remedies": [
+                "Set `deletion_protection_config.enable_deletion_protection = true` in the google_redis_instance resource block."
+            ]
+        },
+        {
+            "condition": "Checks if deletion_protection_config.enable_deletion_protection is true",
+            "attribute_path": ["deletion_protection_config", "enable_deletion_protection"],
+            "values": [true],
+            "policy_type": "whitelist"
+        }
+    ]
+]
 
-# 允许规则：所有 Redis 实例的 deletion_protection_config.enable_deletion_protection 必须为 true
-allow {
-    some resource
-    resources := helpers.get_all_resources("google_redis_instance")
-    resource := resources[_]
-    resource_values := resource.values
-    resource_values.deletion_protection_config.enable_deletion_protection == true
-}
-
-# 违规规则：deletion_protection_config 未开启
-violation[res] {
-    resources := helpers.get_all_resources("google_redis_instance")
-    resource := resources[_]
-    resource_values := resource.values
-    not resource_values.deletion_protection_config.enable_deletion_protection == true
-    res := {
-        "msg": sprintf("Redis 实例 '%v' 未开启 deletion_protection_config.enable_deletion_protection", [resource.name])
-    }
-}
+message := helpers.get_multi_summary(conditions, vars.variables).message
+details := helpers.get_multi_summary(conditions, vars.variables).details
+```

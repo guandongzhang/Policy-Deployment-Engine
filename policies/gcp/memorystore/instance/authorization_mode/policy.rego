@@ -1,32 +1,24 @@
-package terraform.gcp.memorystore.instance.authorization_mode
+package terraform.gcp.security.memorystore_redis.instance.authorization_mode
 
 import data.terraform.gcp.helpers
+import data.terraform.gcp.security.memorystore.redis.vars
 
-default allow = false
+conditions := [
+    [
+        {
+            "situation_description": "Redis instances must use IAM-based authentication (AUTH_MODE_IAM_AUTH) to enforce centralized access control.",
+            "remedies": [
+                "Set `authorization_mode = 'AUTH_MODE_IAM_AUTH'` in the google_redis_instance resource block."
+            ]
+        },
+        {
+            "condition": "Checks if authorization_mode is AUTH_MODE_IAM_AUTH when present",
+            "attribute_path": ["authorization_mode"],
+            "values": ["AUTH_MODE_IAM_AUTH"],
+            "policy_type": "whitelist"
+        }
+    ]
+]
 
-# 允许规则：所有 Redis 实例的 AUTH 认证模式必须为 "AUTH_MODE_IAM_AUTH"（如有该属性）
-allow {
-    some resource
-    resources := helpers.get_all_resources("google_redis_instance")
-    resource := resources[_]
-    resource_values := resource.values
-    
-} {
-    some resource
-    resources := helpers.get_all_resources("google_redis_instance")
-    resource := resources[_]
-    resource_values := resource.values
-    resource_values.authorization_mode == "AUTH_MODE_IAM_AUTH"
-}
-
-# 违规规则：authorization_mode 存在且不为 AUTH_MODE_IAM_AUTH
-violation[res] {
-    resources := helpers.get_all_resources("google_redis_instance")
-    resource := resources[_]
-    resource_values := resource.values
-    resource_values.authorization_mode
-    resource_values.authorization_mode != "AUTH_MODE_IAM_AUTH"
-    res := {
-        "msg": sprintf("Redis 实例 '%v' 的 authorization_mode 未设置为 AUTH_MODE_IAM_AUTH，而是: %v", [resource.name, resource_values.authorization_mode])
-    }
-}
+message := helpers.get_multi_summary(conditions, vars.variables).message
+details := helpers.get_multi_summary(conditions, vars.variables).details
